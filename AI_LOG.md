@@ -24,7 +24,7 @@ El desarrollo de esta prueba se realizó utilizando un Agente de IA integrado di
 2. **Uso de Socket.io:** Aunque `ws` es más puro, se decidió usar `socket.io` por recomendación del agente y confirmación del usuario, debido a su resiliencia (reconexiones automáticas, rooms, etc.).
 3. **Estructura del Proyecto:** Se separaron las carpetas en `frontend` y `backend` dentro del mismo repositorio para un fácil despliegue individual o mediante un monorepo.
 4. **Base de Datos:** Se escribió SQL puro para crear la tabla de mensajes (`database.sql`) y la conexión usa el paquete `pg` sin ORM, tal y como se solicitó.
-5. **Docker Custom Image para Base de Datos:** Se creó un archivo `Dockerfile.db` basado en `postgres:15-alpine` que copia e instala directamente el script `database.sql` dentro de la imagen. El `docker-compose.yml` fue actualizado para construir (`build`) esta imagen personalizada en lugar de simplemente montar un volumen en tiempo de ejecución, asegurando que la imagen sea auto-contenida.
+5. **Dockerización Completa (Full-Stack):** Aunque los requerimientos mencionaban "Deploy: Render (Ideal)", Render ahora requiere planes de pago para sus "Blueprints" o bases de datos gestionadas persistentes. Para evitar costos y depender de plataformas de terceros, se decidió contenerizar toda la aplicación. Se crearon Dockerfiles para el frontend (`nginx` multi-stage), el backend (Node.js) y la base de datos PostgreSQL, orquestados mediante `docker-compose.yml`. Esto permite levantar todo el stack localmente o desplegarlo fácilmente en plataformas como **Railway** o un VPS con un solo comando, otorgando la máxima portabilidad.
 
 ## Problemas y Soluciones
 
