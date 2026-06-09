@@ -11,50 +11,22 @@ Aplicación full-stack en tiempo real que permite a los usuarios publicar mensaj
 - Node.js v18+
 - PostgreSQL
 
-## Configuración y Ejecución
+## Configuración y Ejecución con Docker
 
-### 1. Base de Datos (Docker)
-1. Asegúrate de tener **Docker** y **Docker Compose** instalados.
-2. En la raíz del proyecto (`c:\Workspace\examen\Pulse`), ejecuta el siguiente comando para construir la imagen y levantar la base de datos PostgreSQL:
+Para facilitar la evaluación y el despliegue, todo el proyecto (Base de Datos, Backend y Frontend) está completamente dockerizado.
+
+1. Asegúrate de tener **Docker** y **Docker Compose** instalados en tu computadora.
+2. Clona este repositorio y navega a la raíz del proyecto (`pulse`).
+3. Ejecuta el siguiente comando:
    ```bash
    docker-compose up --build -d
    ```
-   *Nota: Esto construirá una imagen de Docker personalizada (`Dockerfile.db`) que ya incluye el script `database.sql` instalado en su interior. La tabla `messages` se creará sola la primera vez que se inicie la imagen.*
+4. **¡Listo!** Docker descargará y compilará todo por ti:
+   - **Frontend:** Estará disponible en `http://localhost` (Puerto 80).
+   - **Backend:** Correrá internamente en el puerto `4000`.
+   - **Base de Datos:** Se inicializará automáticamente con la estructura necesaria.
 
-### 2. Backend
-1. Navega a la carpeta `backend`:
-   ```bash
-   cd backend
-   ```
-2. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-3. Crea un archivo `.env` basado en `.env.example`:
-   ```bash
-   cp .env.example .env
-   ```
-   Actualiza `DATABASE_URL` con tus credenciales de PostgreSQL.
-4. Inicia el servidor de desarrollo:
-   ```bash
-   npm run dev
-   ```
-   El backend correrá en `http://localhost:3000`.
-
-### 3. Frontend
-1. Navega a la carpeta `frontend`:
-   ```bash
-   cd frontend
-   ```
-2. Instala las dependencias:
-   ```bash
-   npm install
-   ```
-3. Inicia el servidor de desarrollo:
-   ```bash
-   npm run dev
-   ```
-   El frontend correrá en `http://localhost:5173`.
+*(Nota: Si deseas correrlo de forma manual sin Docker, puedes revisar el `package.json` de cada directorio).*
 
 ## Evaluación y Uso de IA
 Por favor revisa el archivo `AI_LOG.md` para ver los detalles sobre cómo se utilizó la IA en la creación de este proyecto.
