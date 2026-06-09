@@ -1,47 +1,47 @@
 # Svelte + TS + Vite
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+Esta plantilla te ayudará a empezar a desarrollar con Svelte y TypeScript en Vite.
 
-## Recommended IDE Setup
+## Configuración recomendada del IDE
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
 
-## Need an official Svelte framework?
+## ¿Necesitas un framework oficial de Svelte?
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+Echa un vistazo a [SvelteKit](https://github.com/sveltejs/kit#readme), que también funciona con Vite. Despliégalo en cualquier lugar con su enfoque "serverless-first" y adáptalo a varias plataformas, con soporte integrado para TypeScript, SCSS y Less, y la posibilidad de añadir fácilmente mdsvex, GraphQL, PostCSS, Tailwind CSS y más.
 
-## Technical considerations
+## Consideraciones técnicas
 
-**Why use this over SvelteKit?**
+**¿Por qué usar esto en lugar de SvelteKit?**
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- Trae su propia solución de enrutamiento (routing) que puede no ser la preferida por algunos usuarios.
+- Es principalmente un framework que resulta usar Vite por debajo, no es puramente una aplicación Vite.
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+Esta plantilla contiene lo mínimo necesario para empezar con Vite + TypeScript + Svelte, teniendo en cuenta la experiencia del desarrollador en cuanto a HMR (Hot Module Replacement) e intellisense. Demuestra capacidades al mismo nivel que las otras plantillas de `create-vite` y es un buen punto de partida para los principiantes que se están adentrando en un proyecto de Vite + Svelte.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+Si más adelante necesitas las capacidades avanzadas y la extensibilidad que proporciona SvelteKit, la plantilla ha sido estructurada de forma similar a SvelteKit para que sea fácil de migrar.
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+**¿Por qué `global.d.ts` en lugar de `compilerOptions.types` dentro de `jsconfig.json` o `tsconfig.json`?**
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+Configurar `compilerOptions.types` bloquea todos los demás tipos que no estén listados explícitamente en la configuración. Usar referencias de triple barra (triple-slash references) mantiene la configuración predeterminada de TypeScript que acepta información de tipos de todo el espacio de trabajo, mientras añade también la información de tipos de `svelte` y `vite/client`.
 
-**Why include `.vscode/extensions.json`?**
+**¿Por qué incluir `.vscode/extensions.json`?**
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+Otras plantillas recomiendan extensiones de forma indirecta a través del README, pero este archivo permite que VS Code le sugiera al usuario instalar las extensiones recomendadas tan pronto como abre el proyecto.
 
-**Why enable `allowJs` in the TS template?**
+**¿Por qué habilitar `allowJs` en la plantilla de TS?**
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+Aunque `allowJs: false` prevendría el uso de archivos `.js` en el proyecto, no previene el uso de sintaxis de JavaScript en los archivos `.svelte`. Además, forzaría a tener `checkJs: false`, trayendo lo peor de ambos mundos: no poder garantizar que todo el código base sea TypeScript, y al mismo tiempo tener un peor chequeo de tipos para el JavaScript existente. Adicionalmente, hay casos de uso válidos donde una mezcla de código puede ser relevante.
 
-**Why is HMR not preserving my local component state?**
+**¿Por qué HMR no está conservando el estado local de mis componentes?**
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+¡La preservación del estado con HMR tiene varias trampas! Ha sido deshabilitada por defecto tanto en `svelte-hmr` como en `@sveltejs/vite-plugin-svelte` debido a su comportamiento que a menudo resulta sorprendente. Puedes leer los detalles [aquí](https://github.com/rixo/svelte-hmr#svelte-hmr).
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+Si tienes algún estado que es importante conservar dentro de un componente, considera crear un store (almacén) externo que no será reemplazado por el HMR.
 
 ```ts
 // store.ts
-// An extremely simple external store
+// Un store externo extremadamente simple
 import { writable } from 'svelte/store'
 export default writable(0)
 ```
