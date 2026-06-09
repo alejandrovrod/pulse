@@ -28,5 +28,15 @@ Para facilitar la evaluación y el despliegue, todo el proyecto (Base de Datos, 
 
 *(Nota: Si deseas correrlo de forma manual sin Docker, puedes revisar el `package.json` de cada directorio).*
 
+## Arquitectura y Despliegue en Railway
+
+El proyecto está diseñado como un **Monorepo** y se encuentra completamente contenedorizado. Su arquitectura en la nube está compuesta por tres servicios independientes orquestados:
+
+1. **Frontend (Svelte 5 + Vite):** Compilado en una imagen Multi-stage y servido de forma extremadamente ligera utilizando un servidor **Nginx**. La aplicación se comunica en tiempo real con el backend mediante WebSockets y llamadas a la API REST.
+2. **Backend (Node.js 20 + Express + Socket.io):** Se encarga de la lógica de negocio y mantiene las conexiones persistentes para garantizar que los mensajes y los "likes" se actualicen en tiempo real en todos los clientes conectados simultáneamente.
+3. **Base de Datos (PostgreSQL):** Un servicio de base de datos relacional aislado, al cual el backend se conecta de forma segura a través de una red privada interna (evitando exponer la base de datos al internet público).
+
+Todo el despliegue está automatizado mediante Dockerfiles independientes para cada servicio.
+
 ## Evaluación y Uso de IA
 Por favor revisa el archivo `AI_LOG.md` para ver los detalles sobre cómo se utilizó la IA en la creación de este proyecto.
