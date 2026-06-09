@@ -38,5 +38,7 @@ El proyecto está diseñado como un **Monorepo** y se encuentra completamente co
 
 Todo el despliegue está automatizado mediante Dockerfiles independientes para cada servicio.
 
+![Arquitectura en Railway](docs/railway-architecture.png)
+
 ## Evaluación y Uso de IA
 Por favor revisa el archivo `AI_LOG.md` para ver los detalles sobre cómo se utilizó la IA en la creación de este proyecto.
