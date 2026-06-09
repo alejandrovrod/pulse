@@ -8,6 +8,8 @@ RUN npm install
 COPY . .
 # Durante la compilación, se asume que el backend será accesible en localhost si se prueba en local,
 # o se podría inyectar a través de variables de entorno.
+ARG VITE_BACKEND_URL
+ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
 RUN npm run build
 
 # Serve stage
