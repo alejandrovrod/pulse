@@ -1,0 +1,11 @@
+FROM postgres:15-alpine
+
+# Copiamos el script SQL directamente en la imagen. 
+# PostgreSQL ejecutará automáticamente cualquier script en /docker-entrypoint-initdb.d/ 
+# la primera vez que se inicie el contenedor.
+COPY backend/database.sql /docker-entrypoint-initdb.d/
+
+# Variables de entorno por defecto (pueden ser sobreescritas en docker-compose.yml)
+ENV POSTGRES_USER=user
+ENV POSTGRES_PASSWORD=password
+ENV POSTGRES_DB=realtime_feedback
