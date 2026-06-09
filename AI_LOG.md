@@ -3,8 +3,8 @@
 Este documento detalla el uso de Inteligencia Artificial (Agente Antigravity) en el desarrollo del Real-Time Feedback Hub.
 
 ## Links de Conversaciones
-El desarrollo se realizó en una sesión continua en el IDE con el agente de IA. 
-(Nota para el desarrollador: Pega aquí los enlaces o referencias de las conversaciones de Gemini si es necesario para el evaluador).
+El desarrollo de esta prueba se realizó utilizando un Agente de IA integrado directamente en el IDE (Gemini / Antigravity). Por esta naturaleza integrada, no existe un link web público para compartir la conversación como lo habría en un portal web estándar. Sin embargo, toda la bitácora de prompts, toma de decisiones, resolución de problemas y ejecución de código ha sido documentada a detalle en este archivo `AI_LOG.md`. 
+*(ID de Conversación interno: 0801c8c8-4e96-4cdb-b8ea-a47c41cbaed2)*
 
 ## Prompts
 
